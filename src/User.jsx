@@ -1,8 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-const User = () => {
+const User = ({name,age,email}) => {
+
   return (
-    <div>User</div>
+    <div>
+      User
+      <h1>{name}</h1>
+      <h1>{age}</h1>
+      <h1>{email}</h1>
+    </div>
+    
   )
 }
 

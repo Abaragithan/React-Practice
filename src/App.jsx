@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import User from './User'
 
 
@@ -9,18 +9,24 @@ const App = () => {
   //   age: 25,
   //   email: "abaragithan02@gmail.com",
   // }
+  const [num1, setNum1] = useState(100);
 
-  const [num, setNum] = useState(1);
+  useEffect(() => {
+    setNum1(200);
+    console.log('from useEffect');
 
-  const clickEvent = () => {
-    setNum(num + 1);
-    console.log(num);
-  }
+    return () => {
+      setNum1(null);
+      console.log('memory cleared');
+
+    }
+
+  }, [num1]);
 
   return (
     <div>
-      <h1>{num}</h1>
-      <button onClick={clickEvent}>Add</button>
+      <h1>{num1}</h1>
+      <button onClick={() => setNum1(num1 + 1)}>Add</button>
 
     </div>
   )

@@ -1,4 +1,5 @@
 import { react, useState, useRef, useEffect } from 'react'
+import Theme from './Theme';
 
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
 
    return (
       <div>
-         <h1>input </h1>
+         {/* <h1>input </h1>
          <input
             type="text"
             value={input}
@@ -26,9 +27,9 @@ const App = () => {
          />
          <p>input : {input}</p>
          <p>input : {inputRef.current}</p>
-         <button onClick={display}>show input</button>
+         <button onClick={display}>show input</button> */}
 
-
+         <Theme/>
 
       </div>
    )

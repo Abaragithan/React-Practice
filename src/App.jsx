@@ -1,35 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import User from './User'
+import { react, useState, useRef, useEffect } from 'react'
 
 
 const App = () => {
 
-  // const person = {
-  //   name: "abaragithan",
-  //   age: 25,
-  //   email: "abaragithan02@gmail.com",
-  // }
-  const [num1, setNum1] = useState(100);
+   const [input, setInput] = useState("");
+   const inputRef = useRef();
+   useEffect(() => {
+      inputRef.current = input;
+   }, [input]);
+   console.log("getting renderd");
 
-  useEffect(() => {
-    setNum1(200);
-    console.log('from useEffect');
 
-    return () => {
-      setNum1(null);
-      console.log('memory cleared');
+   const display = () => {
+      console.log(inputRef.current);
+   }
 
-    }
+   return (
+      <div>
+         <h1>input </h1>
+         <input
+            type="text"
+            value={input}
+            onChange={(event) => { setInput(event.target.value) }}
+            ref={inputRef}
+         />
+         <p>input : {input}</p>
+         <p>input : {inputRef.current}</p>
+         <button onClick={display}>show input</button>
 
-  }, [num1]);
 
-  return (
-    <div>
-      <h1>{num1}</h1>
-      <button onClick={() => setNum1(num1 + 1)}>Add</button>
 
-    </div>
-  )
+      </div>
+   )
 }
 
 export default App
